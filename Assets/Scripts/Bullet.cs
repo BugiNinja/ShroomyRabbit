@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour {
                     Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
                     rb.velocity = new Vector2(0, 0);
                     rb.AddForce(new Vector2(1, 1) * s.GetKnockback());
-                    s.LoseLife(10);
+                    s.LoseLife(25);
                     s.GiveInvicibility();
                 }
                 Destroy(gameObject);

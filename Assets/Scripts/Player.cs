@@ -75,17 +75,17 @@ public class Player : MonoBehaviour {
 
                 if (right)
                 {
-                    Debug.Log("oikea");
+                    
                     
                     rb.AddForce(new Vector2(10,1) * s.GetKnockback() , ForceMode2D.Force);
                 }else
                 {
-                    Debug.Log("Vasen");
+                    
                     rb.AddForce(new Vector2(-10, 1) * s.GetKnockback() , ForceMode2D.Force);
                 }
                     
                 
-                s.LoseLife(10);
+                s.LoseLife(25);
                 s.GiveInvicibility();
             }
             

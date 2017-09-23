@@ -119,7 +119,7 @@ public class enemyGun : MonoBehaviour {
         Vector2 diff =  muzzle.position - transform.position;
         diff.Normalize();
         RaycastHit2D hit = Physics2D.Raycast(muzzle.position, diff, Mathf.Infinity);
-        Debug.DrawRay(muzzle.position, diff, Color.green);
+        
         if (hit.collider != null)
         {
 

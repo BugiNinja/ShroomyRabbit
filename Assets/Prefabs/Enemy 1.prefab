@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4320291af06c9d4e9e66510ffd9388e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHp: 1
+  initialHp: 100
   maxHp: 100
   knockback: 200
   invisibleTime: 1

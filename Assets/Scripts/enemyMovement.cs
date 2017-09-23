@@ -53,7 +53,21 @@ public class enemyMovement : MonoBehaviour {
 
         }
 	}
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Enemy")
+        {
+            if (left == false)
+            {
+                left = true;
+            }
+            else if (left == true)
+            {
+                left = false;
+            }
+        }
 
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (left == false)
