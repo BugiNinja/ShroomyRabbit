@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour {
 
-    public int initialHp = 100; //Starting HitPoints
+    public int initialHp = 50; //Starting HitPoints
 
-    public int maxHp = 100; //Max amount of HitPoints
+    public int maxHp = 500; //Max amount of HitPoints
 
     public float knockback = 200; //Knockback force when hit
 
@@ -20,9 +20,25 @@ public class Stats : MonoBehaviour {
 
     public int hp;
 
+    public bool playerShroomed;
+
+    public bool enemyShroomed;
+
+    public Sprite powerPlayer;
+
+    public Sprite powerEnemy;
+
+    SpriteRenderer spriteRenderer;
+
     void Start()
     {
         hp = initialHp;
+
+        playerShroomed = false;
+
+        enemyShroomed = false;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -30,6 +46,14 @@ public class Stats : MonoBehaviour {
         if (invisible)
         {
             InvicibilityTimer();
+        }
+        if (playerShroomed == true)
+        {
+            spriteRenderer.sprite = powerPlayer;
+        }
+        if (enemyShroomed == true)
+        {
+            spriteRenderer.sprite = powerEnemy;
         }
     }
 
@@ -61,6 +85,16 @@ public class Stats : MonoBehaviour {
         else if (hp <= 0)
         {
             alive = false;
+        }
+        if (hp >= 200)
+        {
+            playerShroomed = true;
+            enemyShroomed = true;
+        }
+        else if (hp < 200)
+        {
+            playerShroomed = false;
+            enemyShroomed = false;
         }
     }
 
@@ -96,6 +130,5 @@ public class Stats : MonoBehaviour {
     {
         return alive;
     }
-
 
 }

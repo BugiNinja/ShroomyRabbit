@@ -90,11 +90,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4320291af06c9d4e9e66510ffd9388e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHp: 100
+  initialHp: 1
   maxHp: 100
   knockback: 200
   invisibleTime: 1
   hp: 0
+  playerShroomed: 0
+  enemyShroomed: 0
+  powerPlayer: {fileID: 0}
+  powerEnemy: {fileID: 0}
 --- !u!114 &114767074753848106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289997db0bda22e419ad291b275f4fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Door: {fileID: 1992587217944692, guid: 3bad44ed7b88cf74ca9d774b855a629e, type: 2}
 --- !u!114 &114988404511558402
 MonoBehaviour:
   m_ObjectHideFlags: 1

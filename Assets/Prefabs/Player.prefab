@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775620364626750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.847572, y: 3.2067165, z: -10}
+  m_LocalPosition: {x: -13.26, y: 3.2067165, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4008479310426290}
@@ -154,7 +154,7 @@ MonoBehaviour:
     type: 2}
   grenadePrefab: {fileID: 1138411632983610, guid: 058a491f92ac5fa41adb466eb80b0b6a,
     type: 2}
-  shootingDelay: 1
+  shootingDelay: 0.4
   grenadeDelay: 1
 --- !u!114 &114324075918653614
 MonoBehaviour:
@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2dd2effcac1fb349be5695e869d8a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 5
-  jumpPower: 100
+  movSpeed: 8
+  jumpPower: 120
 --- !u!114 &114558991567756734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,10 +181,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHp: 100
-  maxHp: 100
+  maxHp: 500
   knockback: 200
   invisibleTime: 1
   hp: 0
+  playerShroomed: 0
+  enemyShroomed: 0
+  powerPlayer: {fileID: 0}
+  powerEnemy: {fileID: 0}
 --- !u!212 &212359256182821348
 SpriteRenderer:
   m_ObjectHideFlags: 1
