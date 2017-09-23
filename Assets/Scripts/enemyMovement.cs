@@ -28,6 +28,7 @@ public class enemyMovement : MonoBehaviour {
         sr = this.GetComponent<SpriteRenderer>();
 
         myTrans = this.transform;
+        
     }
 
     // Update is called once per frame

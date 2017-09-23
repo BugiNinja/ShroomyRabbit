@@ -52,14 +52,14 @@ public class Bullet : MonoBehaviour {
             else
             {
                 Stats s = coll.gameObject.GetComponent<Stats>();
-                if (!s.IsInvicible())
-                {
+                
+               
                     Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
                     rb.velocity = new Vector2(0, 0);
                     rb.AddForce(new Vector2(1, 1) * s.GetKnockback());
                     s.LoseLife(25);
                     s.GiveInvicibility();
-                }
+                
                 Destroy(gameObject);
             }
             
