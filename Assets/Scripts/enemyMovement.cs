@@ -12,6 +12,8 @@ public class enemyMovement : MonoBehaviour {
 
     private Transform myTrans;
 
+    private SpriteRenderer sr;
+
     public bool left;
    
 	// Use this for initialization
@@ -22,6 +24,8 @@ public class enemyMovement : MonoBehaviour {
         enemyHealth = 10;
 
         enemyBody = this.GetComponent<Rigidbody2D>();
+
+        sr = this.GetComponent<SpriteRenderer>();
 
         myTrans = this.transform;
     }
@@ -36,6 +40,7 @@ public class enemyMovement : MonoBehaviour {
             Vector2 enemyVel = enemyBody.velocity;
             enemyVel.x = enemySpeed;
             enemyBody.velocity = enemyVel;
+            sr.flipX = true;
         }
         else if (left == true)
         {
@@ -44,6 +49,8 @@ public class enemyMovement : MonoBehaviour {
             Vector2 enemyVel = enemyBody.velocity;
             enemyVel.x = enemySpeed;
             enemyBody.velocity = enemyVel;
+            sr.flipX = false;
+
         }
 	}
 

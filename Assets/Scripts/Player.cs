@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
     Stats s;
     SpriteRenderer sr;
     Rigidbody2D rb;
-    Collider2D collider;
+    Collider2D cder;
     float timer = 0f;
     // Use this for initialization
     void Start()
@@ -14,7 +14,7 @@ public class Player : MonoBehaviour {
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-        collider = gameObject.GetComponent<Collider2D>();
+        cder = gameObject.GetComponent<Collider2D>();
         Physics2D.IgnoreLayerCollision(8, 10, true);
     }
 
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour {
                 //rb.AddForce(transform.up * s.GetKnockback(), ForceMode2D.Force);
                
                 Vector3 contactPoint = coll.contacts[0].point;
-                Vector3 center = collider.bounds.center;
+                Vector3 center = cder.bounds.center;
 
                 bool right = contactPoint.x < center.x;
 

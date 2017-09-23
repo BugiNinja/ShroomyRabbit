@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    public float bulletSpeed = 100.0f;
-
+    public float bulletSpeed = 800.0f;
+    public bool enemyBullet;
     Vector2 target;
 
     Vector2 direction;
@@ -21,10 +21,19 @@ public class Bullet : MonoBehaviour {
     }
     void BulletDirection()
     {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
-        direction = target - myPos;
-        direction.Normalize();
+        if (!enemyBullet)
+        {
+            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
+            direction = target - myPos;
+            direction.Normalize();
+        }else
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform.position;
+            Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
+            direction = target - myPos;
+            direction.Normalize();
+        }
     }
 
     void FixedUpdate ()
@@ -33,18 +42,26 @@ public class Bullet : MonoBehaviour {
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Enemy")
+        if (coll.gameObject.layer == 8)
         {
-            
-            Stats s = coll.gameObject.GetComponent<Stats>();
-            if (!s.IsInvicible())
+            if (coll.gameObject.tag == "Untagged")
             {
-                Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
-                rb.AddForce(new Vector2(1, 1) * s.GetKnockback());
-                s.LoseLife(10);
-                s.GiveInvicibility();
+                Destroy(coll.gameObject);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            else
+            {
+                Stats s = coll.gameObject.GetComponent<Stats>();
+                if (!s.IsInvicible())
+                {
+                    Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
+                    rb.velocity = new Vector2(0, 0);
+                    rb.AddForce(new Vector2(1, 1) * s.GetKnockback());
+                    s.LoseLife(10);
+                    s.GiveInvicibility();
+                }
+                Destroy(gameObject);
+            }
             
         }
         else if (coll.gameObject.tag == "Ground")
