@@ -8,16 +8,13 @@ public class Enemy : MonoBehaviour {
     Door d;
     SpriteRenderer sr;
     float timer = 0f;
-    public GameObject Door;
 
 	// Use this for initialization
 	void Start ()
     {
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
-        Door = GameObject.FindGameObjectWithTag("Door");
-        d = Door.GetComponent<Door>();
-        
+
     }
 	
 	// Update is called once per frame
@@ -26,7 +23,7 @@ public class Enemy : MonoBehaviour {
 		if(s.IsAlive() == false)
         {
             //Destroy enemy when hp <= 0
-            d.enemyNumber -= 1;
+
             Destroy(gameObject);
             
         }
