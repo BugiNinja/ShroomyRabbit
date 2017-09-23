@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 50773371604807832}
   - component: {fileID: 114324075918653614}
   - component: {fileID: 114558991567756734}
+  - component: {fileID: 114614932161093522}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -118,7 +119,7 @@ Rigidbody2D:
   m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movSpeed: 8
-  jumpPower: 120
+  jumpPower: 210
 --- !u!114 &114558991567756734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,6 +189,17 @@ MonoBehaviour:
   enemyShroomed: 0
   powerPlayer: {fileID: 0}
   powerEnemy: {fileID: 0}
+--- !u!114 &114614932161093522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775620364626750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3789b9bd82e7a448b8152f8463a0210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212359256182821348
 SpriteRenderer:
   m_ObjectHideFlags: 1
