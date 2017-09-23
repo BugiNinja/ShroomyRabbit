@@ -6,7 +6,7 @@ public class gunMouseFollow : MonoBehaviour {
 
     Vector3 mousePosition;
 
-    public Transform crosshair;
+    Transform crosshair;
 
     public GameObject bulletPrefab;
 
@@ -27,6 +27,7 @@ public class gunMouseFollow : MonoBehaviour {
     SpriteRenderer sr;
 
     void Start() {
+        crosshair = GameObject.FindGameObjectWithTag("Crosshair").transform;
         sr = gameObject.GetComponent<SpriteRenderer>();
         muzzle = transform.GetChild(0);
     }

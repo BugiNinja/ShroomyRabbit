@@ -12,8 +12,8 @@ public class Enemy : MonoBehaviour {
     {
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
-        GameObject go = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreLayerCollision(8, 10, true); //siirrä myöhemmin järkevämpään paikkaan
+        
+        
     }
 	
 	// Update is called once per frame
