@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50847850377600586}
   - component: {fileID: 114526865904890418}
   - component: {fileID: 61366784750419726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f1dc175f6a1454eaeedf516970522f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 500
+  bulletSpeed: 1000
+  enemyBullet: 0
 --- !u!212 &212940322175538740
 SpriteRenderer:
   m_ObjectHideFlags: 1
