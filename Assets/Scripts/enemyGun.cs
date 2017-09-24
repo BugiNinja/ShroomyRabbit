@@ -12,7 +12,7 @@ public class enemyGun : MonoBehaviour {
 
     float searchTimer;
 
-    public float shootDelay = 1;
+    public float shootDelay = 1 / 2;
     float shootTimer;
 
     public GameObject eBulletPrefab;
