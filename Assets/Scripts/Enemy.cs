@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour {
         if (s.IsInvicible() == true)
         {
             CheckLife();
-            health.SetActive(true);
+            //health.SetActive(true);
             gameObject.layer = 10; //Move to invicible layer
             //invicible visual effect
             timer -= Time.deltaTime;
