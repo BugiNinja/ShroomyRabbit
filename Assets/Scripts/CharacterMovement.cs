@@ -10,9 +10,12 @@ public class CharacterMovement : MonoBehaviour {
 
 	public float jumpPower;
 
+    Player pl;
+
 	// Use this for initialization
 	void Start () 
 	{
+        pl = gameObject.GetComponent<Player>();
 		myRigidBody = GetComponent<Rigidbody2D> ();
 	}
 	
@@ -20,9 +23,16 @@ public class CharacterMovement : MonoBehaviour {
 	void FixedUpdate () 
 	{
         //Input & call movement void
-
+        
         float horizontal = Input.GetAxis ("Horizontal");
-
+        if(horizontal != 0)
+        {
+            pl.RunAnimation(true);
+        }
+        else
+        {
+            pl.RunAnimation(false);
+        }
 		movement (horizontal);
 	}
 

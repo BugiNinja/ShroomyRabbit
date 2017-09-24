@@ -7,12 +7,14 @@ public class Player : MonoBehaviour {
     SpriteRenderer sr;
     Rigidbody2D rb;
     Collider2D cder;
+    Animator a;
     float timer = 0f;
     // Use this for initialization
     void Start()
     {
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        a = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         cder = gameObject.GetComponent<Collider2D>();
         Physics2D.IgnoreLayerCollision(8, 10, true);
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour {
             Destroy(gameObject);
         }
         Invicibility();
+        
 
     }
     void Invicibility()
@@ -77,14 +80,14 @@ public class Player : MonoBehaviour {
                 {
                     
                     
-                    rb.AddForce(new Vector2(10,1) * s.GetKnockback() , ForceMode2D.Force);
+                    rb.AddForce(new Vector2(1,1) * s.GetKnockback() , ForceMode2D.Force);
                 }else
                 {
                     
-                    rb.AddForce(new Vector2(-10, 1) * s.GetKnockback() , ForceMode2D.Force);
+                    rb.AddForce(new Vector2(-1, 1) * s.GetKnockback() , ForceMode2D.Force);
                 }
-                    
-                
+
+                PlayDamageAnimation();
                 s.LoseLife(25);
                 s.GiveInvicibility();
             }
@@ -95,5 +98,15 @@ public class Player : MonoBehaviour {
         {
             
         }
+    }
+    public void RunAnimation(bool run)
+    {
+
+       a.SetBool("run", run);
+
+    }
+    public void PlayDamageAnimation()
+    {
+        a.Play("damage");
     }
 }

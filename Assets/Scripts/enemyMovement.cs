@@ -10,7 +10,7 @@ public class enemyMovement : MonoBehaviour {
 
     private Rigidbody2D enemyBody;
 
-    private Transform myTrans;
+    //private Transform myTrans;
 
     private SpriteRenderer sr;
 
@@ -27,7 +27,7 @@ public class enemyMovement : MonoBehaviour {
 
         sr = this.GetComponent<SpriteRenderer>();
 
-        myTrans = this.transform;
+        //myTrans = this.transform;
         
     }
 
@@ -41,7 +41,7 @@ public class enemyMovement : MonoBehaviour {
             Vector2 enemyVel = enemyBody.velocity;
             enemyVel.x = enemySpeed;
             enemyBody.velocity = enemyVel;
-            sr.flipX = true;
+            sr.flipX = false;
         }
         else if (left == true)
         {
@@ -50,7 +50,7 @@ public class enemyMovement : MonoBehaviour {
             Vector2 enemyVel = enemyBody.velocity;
             enemyVel.x = enemySpeed;
             enemyBody.velocity = enemyVel;
-            sr.flipX = false;
+            sr.flipX = true;
 
         }
 	}

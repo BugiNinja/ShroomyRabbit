@@ -12,6 +12,7 @@ TagManager:
   - Door
   - LifeShroom
   - Spawner
+  - Flipper
   layers:
   - Default
   - TransparentFX

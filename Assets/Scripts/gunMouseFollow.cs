@@ -24,9 +24,15 @@ public class gunMouseFollow : MonoBehaviour {
 
     float grenadeTimer = 0;
 
+    Transform flipper;
+
+    SpriteRenderer playerSr;
+
     SpriteRenderer sr;
 
     void Start() {
+        playerSr = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
+        flipper = GameObject.FindGameObjectWithTag("Flipper").transform;
         crosshair = GameObject.FindGameObjectWithTag("Crosshair").transform;
         sr = gameObject.GetComponent<SpriteRenderer>();
         muzzle = transform.GetChild(0);
@@ -50,11 +56,17 @@ public class gunMouseFollow : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
         if(transform.rotation.eulerAngles.z < 180)
         {
-            sr.flipX = true;
+            //sr.flipX = true;
+            playerSr.flipX = false;
+            flipper.localScale = new Vector3(1, 1, 1);
+
         }
         else if (transform.rotation.eulerAngles.z > 180)
         {
-            sr.flipX = false;
+            //sr.flipX = false;
+            playerSr.flipX = true;
+            flipper.localScale = new Vector3(-1, 1, 1);
+
         }
     }
     void Shoot() {

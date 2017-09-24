@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114988404511558402}
   - component: {fileID: 114741556186065630}
   - component: {fileID: 114767074753848106}
+  - component: {fileID: 95649141691774394}
   m_Layer: 8
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -39,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568675396175316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.83, y: -8.30405, z: 14.385196}
-  m_LocalScale: {x: 2.290181, y: 1.1266876, z: 1}
+  m_LocalPosition: {x: -10.23, y: -4.36, z: 14.385196}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,7 +79,24 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.33, y: 0.15}
+--- !u!95 &95649141691774394
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568675396175316}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ac0c79fc520fd04ca25b65fc2f903af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114741556186065630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289997db0bda22e419ad291b275f4fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Door: {fileID: 1992587217944692, guid: 3bad44ed7b88cf74ca9d774b855a629e, type: 2}
 --- !u!114 &114988404511558402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,7 +172,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0f5aa53e599bc5b4a9f769fa6623b92e, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: c0e4028477aad3144bd96784cc5b5791, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0

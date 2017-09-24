@@ -8,26 +8,42 @@ public class Enemy : MonoBehaviour {
     Door d;
     SpriteRenderer sr;
     float timer = 0f;
+    float dtimer = 0f;
+    Animator a;
 
 	// Use this for initialization
 	void Start ()
     {
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        a = gameObject.GetComponent<Animator>();
+        
 
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-		if(s.IsAlive() == false)
+        if (s.IsAlive() == false)
         {
-            //Destroy enemy when hp <= 0
 
-            Destroy(gameObject);
-            
+            if (dtimer == 0)
+            {
+                dtimer = 0.45f;
+            }
+            //Destroy enemy when hp <= 0
+            a.Play("turtleDeath");
+            dtimer -= Time.deltaTime;
+            if (dtimer <= 0)
+            {
+                Destroy(gameObject);
+            }
+
         }
-        Invicibility();
+        else
+        {
+            Invicibility();
+        }
         
 	}
     void Invicibility()

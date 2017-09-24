@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 2b211f41369a7d443af0bc8b09ec589a
-timeCreated: 1506195862
+guid: 2f7e1a7fa7f20a34d8cfcd8941d149d1
+timeCreated: 1506203718
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: basicturtle_death_0
+    21300002: basicturtle_death_1
+    21300004: basicturtle_death_2
+    21300006: basicturtle_death_3
+    21300008: basicturtle_death_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,11 +39,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.65, y: 0.97}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
@@ -124,7 +129,72 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: basicturtle_death_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicturtle_death_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicturtle_death_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicturtle_death_3
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: basicturtle_death_4
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 1
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
