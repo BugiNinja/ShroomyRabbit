@@ -13,25 +13,40 @@ public class EnemySpawner : MonoBehaviour {
     int spawned = 0;
 
     float spawnTimer;
+
+    Animator a;
+
+    bool stop;
     
 
 
 	void Start () {
         spawnTimer = spawnDelay;
+        a = transform.GetComponent<Animator>();
+        
 	}
 
 
     void Update() {
-        if (spawned < maxSpawned)
+        if (!stop)
         {
-            spawnTimer -= Time.deltaTime;
-            if (spawnTimer <= 0)
+            if (spawned < maxSpawned)
             {
-                Instantiate(enemyPrefab, transform.position, transform.rotation);
-                spawned++;
-                spawnTimer = spawnDelay;
+                spawnTimer -= Time.deltaTime;
+                if (spawnTimer <= 0)
+                {
+                    Instantiate(enemyPrefab, transform.position, transform.rotation);
+                    spawned++;
+                    spawnTimer = spawnDelay;
+                }
             }
         }
     
 	}
+    public void PlayAnimation()
+    {
+        stop = true;
+        a.Play("enemyspawner");
+        
+    }
 }

@@ -43,9 +43,22 @@ public class Bullet : MonoBehaviour {
     {
         rb.velocity = direction * bulletSpeed * Time.deltaTime;
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.layer == 8)
+        {
+                if (coll.gameObject.tag == "Enemy")
+                {
+                    EnemySpawner es = coll.GetComponent<EnemySpawner>();
+                    es.PlayAnimation();
+                }
+
+        }
+       
+    }
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+       if (coll.gameObject.layer == 8)
         {
             if (coll.gameObject.tag == "Untagged")
             {
@@ -77,5 +90,6 @@ public class Bullet : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    
     }
 }
