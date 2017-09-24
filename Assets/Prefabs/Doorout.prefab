@@ -151,9 +151,11 @@ MonoBehaviour:
   thisLevel: {fileID: 0}
   nextlevel: {fileID: 0}
   enemies: []
+  room3: {fileID: 0}
   fadeSpeed: 1
   alpha: {r: 0, g: 0, b: 0, a: 0}
   openDoor: {fileID: 21300000, guid: c15cab173a252514e9d787ae6e299159, type: 3}
+  Camera: 0
 --- !u!212 &212953967927454934
 SpriteRenderer:
   m_ObjectHideFlags: 1
