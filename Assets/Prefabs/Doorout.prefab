@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1156606878772322}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 17.154465, y: 4.8900003, z: 14.385196}
-  m_LocalScale: {x: 5.250002, y: 3.490002, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.3, y: 4.88, z: 37.238148}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61067307359529600
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -53,9 +53,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.25, y: 0}
+  m_Offset: {x: 0, y: -0.14}
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.11, y: 0.25}
 --- !u!114 &114437706802680336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,6 +70,7 @@ MonoBehaviour:
   thisLevel: {fileID: 0}
   nextlevel: {fileID: 0}
   fadeSpeed: 10
+  alpha: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &212953967927454934
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,8 +101,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f5aa53e599bc5b4a9f769fa6623b92e, type: 3}
-  m_Color: {r: 0.2205882, g: 0.16706313, b: 0.16706313, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: c15cab173a252514e9d787ae6e299159, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

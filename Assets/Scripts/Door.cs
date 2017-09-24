@@ -21,7 +21,7 @@ public class Door : MonoBehaviour {
         sr = GameObject.Find("Fade").GetComponent<SpriteRenderer>();
         alpha = new Color(0, 0, 0, sr.color.a);
         playertf = GameObject.FindGameObjectWithTag("Player").transform;
-        spawnpositio = nextlevel.transform.GetChild(0);
+        spawnpositio = nextlevel.transform.GetChild(0).GetChild(0);
 
     }
 	
