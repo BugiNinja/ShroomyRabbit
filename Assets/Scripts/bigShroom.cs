@@ -6,6 +6,7 @@ public class bigShroom : MonoBehaviour {
 
     Stats s;
     gunMouseFollow g;
+    enemyMovement e;
 
     // Use this for initialization
     void Start ()
@@ -33,6 +34,9 @@ public class bigShroom : MonoBehaviour {
         {
             Stats s = coll.gameObject.GetComponent<Stats>();  //coll.gameObject.GetComponent<Stats>();
             s.AddLife(100);
+            enemyMovement e = coll.gameObject.GetComponent<enemyMovement>();
+            e.faster = true;
+         //   e.enemySpeed = e.enemySpeed * 5;
             Destroy(gameObject);
         }
     }
