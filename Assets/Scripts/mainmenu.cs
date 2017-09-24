@@ -20,6 +20,7 @@ public class mainmenu : MonoBehaviour {
             {
                 if (hit.transform.name == "Start")
                 {
+                    
                     SceneManager.LoadScene(1);
                 }
             }
