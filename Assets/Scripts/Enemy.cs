@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour {
     float timer = 0f;
     float dtimer = 0f;
     Animator a;
+    AudioSource source;
+    public AudioClip dies;
+
 
 	// Use this for initialization
 	void Start ()
@@ -17,6 +20,7 @@ public class Enemy : MonoBehaviour {
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         a = gameObject.GetComponent<Animator>();
+        source = gameObject.GetComponent<AudioSource>();
         
 
     }
@@ -29,7 +33,10 @@ public class Enemy : MonoBehaviour {
 
             if (dtimer == 0)
             {
+                gameObject.layer = 10;
                 dtimer = 0.45f;
+                source.clip = dies;
+                source.Play();
             }
             //Destroy enemy when hp <= 0
             a.Play("turtleDeath");
@@ -72,5 +79,9 @@ public class Enemy : MonoBehaviour {
             gameObject.layer = 8; //Back to character layer
             sr.enabled = true;
         }
+    }
+    public void PlayHitSound()
+    {
+        source.Play();
     }
 }

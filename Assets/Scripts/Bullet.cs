@@ -11,11 +11,14 @@ public class Bullet : MonoBehaviour {
     Vector2 direction;
 
     Rigidbody2D rb;
+    
+
+
 
     void Start ()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        
+
 
         BulletDirection();
     }
@@ -51,14 +54,20 @@ public class Bullet : MonoBehaviour {
             }
             else
             {
-                Stats s = coll.gameObject.GetComponent<Stats>();
                 
-               
-                    Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
-                    rb.velocity = new Vector2(0, 0);
-                    rb.AddForce(new Vector2(1, 1) * s.GetKnockback());
-                    s.LoseLife(25);
-                    s.GiveInvicibility();
+                if(coll.gameObject.tag == "Enemy")
+                {
+                    Enemy e = coll.gameObject.GetComponent<Enemy>();
+                    e.PlayHitSound();
+                    
+                }
+                Stats s = coll.gameObject.GetComponent<Stats>();
+                Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
+                rb.velocity = new Vector2(0, 0);
+                rb.AddForce(new Vector2(1, 1) * s.GetKnockback());
+                
+                s.LoseLife(25);
+                s.GiveInvicibility();
                 
                 Destroy(gameObject);
             }

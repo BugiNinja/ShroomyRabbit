@@ -9,12 +9,15 @@ public class CharacterMovement : MonoBehaviour {
 	public float movSpeed;
 
 	public float jumpPower;
+    public AudioClip jump;
+    AudioSource source;
 
     Player pl;
 
 	// Use this for initialization
 	void Start () 
 	{
+        source = gameObject.GetComponent<AudioSource>();
         pl = gameObject.GetComponent<Player>();
 		myRigidBody = GetComponent<Rigidbody2D> ();
 	}
@@ -41,8 +44,14 @@ public class CharacterMovement : MonoBehaviour {
         //Ground check & jump
         if (coll.gameObject.tag == "Ground" && Input.GetKey ("space")) 
 		{
+            source.clip = jump;
+            source.Play();
 			myRigidBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Force);
 		}
+        if (coll.gameObject.tag == "Wall")
+        {
+            myRigidBody.velocity = new Vector3(0, 0, 0);
+        }
 	}
 
 	private void movement(float horizontal)

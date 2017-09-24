@@ -9,16 +9,21 @@ public class Door : MonoBehaviour {
     public GameObject nextlevel;
     Transform playertf;
     Transform spawnpositio;
-    GameObject[] enemies;
+    public GameObject[] enemies;
     bool switchLevel = false;
-    SpriteRenderer sr; 
+    SpriteRenderer sr;
+    SpriteRenderer srThis;
     public float fadeSpeed = 0.5f;
     public Color alpha;
+    bool doorOpen = false;
+    AudioSource source;
+    public Sprite openDoor;
     // Use this for initialization
     void Start ()
     {
-        
+        source = gameObject.GetComponent<AudioSource>();
         sr = GameObject.Find("Fade").GetComponent<SpriteRenderer>();
+        srThis = gameObject.GetComponent<SpriteRenderer>();
         alpha = new Color(0, 0, 0, sr.color.a);
         playertf = GameObject.FindGameObjectWithTag("Player").transform;
         spawnpositio = nextlevel.transform.GetChild(0).GetChild(0);
@@ -28,7 +33,16 @@ public class Door : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length == 0)
+        {
+            if (!doorOpen)
+            {
+                source.Play();
+                srThis.sprite = openDoor;
+                doorOpen = true;
+            }
+        }
         if (switchLevel)
         {
             LevelTransition();
@@ -41,8 +55,8 @@ public class Door : MonoBehaviour {
         if (coll.gameObject.name == "Player")
         {
             
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            if (enemies.Length == 0 && Input.GetKeyDown(KeyCode.W))
+            
+            if (doorOpen && Input.GetKeyDown(KeyCode.W))
                 
             {
 

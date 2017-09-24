@@ -9,9 +9,17 @@ public class Player : MonoBehaviour {
     Collider2D cder;
     Animator a;
     float timer = 0f;
+    AudioSource source;
+    public AudioClip landing;
+    public AudioClip hit;
+    public AudioClip death;
+    float dtimer = 0f;
+
+
     // Use this for initialization
     void Start()
     {
+        source = gameObject.GetComponent<AudioSource>();
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         a = gameObject.GetComponent<Animator>();
@@ -26,7 +34,19 @@ public class Player : MonoBehaviour {
         if (s.IsAlive() == false)
         {
             //Destroy enemy when hp <= 0
-            Destroy(gameObject);
+            if (dtimer == 0)
+            {
+                gameObject.layer = 10;
+                dtimer = 0.45f;
+                source.clip = death;
+                source.Play();
+            }
+            a.Play("playerDeath");
+            dtimer -= Time.deltaTime;
+            if (dtimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
         Invicibility();
         
@@ -86,7 +106,8 @@ public class Player : MonoBehaviour {
                     
                     rb.AddForce(new Vector2(-1, 1) * s.GetKnockback() , ForceMode2D.Force);
                 }
-
+                source.clip = hit;
+                source.Play();
                 PlayDamageAnimation();
                 s.LoseLife(25);
                 s.GiveInvicibility();
@@ -97,13 +118,14 @@ public class Player : MonoBehaviour {
         else if (coll.gameObject.tag == "Ground")
         {
             
+            source.clip = landing;
+            source.Play();
         }
     }
     public void RunAnimation(bool run)
     {
 
        a.SetBool("run", run);
-
     }
     public void PlayDamageAnimation()
     {

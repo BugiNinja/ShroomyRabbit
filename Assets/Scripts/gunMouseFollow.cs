@@ -30,7 +30,10 @@ public class gunMouseFollow : MonoBehaviour {
 
     SpriteRenderer sr;
 
+    AudioSource source;
+
     void Start() {
+        source = gameObject.GetComponent<AudioSource>();
         playerSr = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
         flipper = GameObject.FindGameObjectWithTag("Flipper").transform;
         crosshair = GameObject.FindGameObjectWithTag("Crosshair").transform;
@@ -76,10 +79,12 @@ public class gunMouseFollow : MonoBehaviour {
         }
         if (Input.GetButtonDown("Fire1") && shootingTimer <= 0)
         {
+            source.Play();
             Instantiate(bulletPrefab, muzzle.transform.position, transform.rotation);
             shootingTimer = shootingDelay;
             
         }
+        /*
         if (grenadeTimer > 0)
         {
             grenadeTimer -= Time.deltaTime;
@@ -89,7 +94,7 @@ public class gunMouseFollow : MonoBehaviour {
             Instantiate(grenadePrefab, muzzle.transform.position , transform.rotation);
             grenadeTimer = grenadeDelay;
 
-        }
+        }*/
 
     }
 }
