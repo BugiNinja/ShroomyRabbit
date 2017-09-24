@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class cameraMovement : MonoBehaviour {
 
-    public float speed = 10;
-    public GameObject thisCamera;
-    Door d;
+    
+    public GameObject player;
+    
+    
 
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        Door d = GameObject.FindGameObjectWithTag("Wall").GetComponent<Door>();
-        if (d.Camera = true)
-        {
-            thisCamera.SetActive(true);
-        }
-        
+        if (player.transform.position.x > 0 && player.transform.position.x < 30) {
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, -10);
+        } 
 
       /*  var movement = Vector3.zero;
 

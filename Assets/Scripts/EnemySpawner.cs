@@ -46,6 +46,7 @@ public class EnemySpawner : MonoBehaviour {
     public void PlayAnimation()
     {
         stop = true;
+        gameObject.tag = "Untagged";
         a.Play("enemyspawner");
         
     }

@@ -20,7 +20,8 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        health = transform.FindChild("Health").gameObject;
+        Cursor.visible = false;
+        health = transform.Find("Health").gameObject;
         health.SetActive(false);
         source = gameObject.GetComponent<AudioSource>();
         s = gameObject.GetComponent<Stats>();

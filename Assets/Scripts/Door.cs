@@ -10,7 +10,7 @@ public class Door : MonoBehaviour {
     Transform playertf;
     Transform spawnpositio;
     public GameObject[] enemies;
-    public GameObject room3;
+    
     bool switchLevel = false;
     SpriteRenderer sr;
     SpriteRenderer srThis;
@@ -19,7 +19,6 @@ public class Door : MonoBehaviour {
     bool doorOpen = false;
     AudioSource source;
     public Sprite openDoor;
-    public bool Camera = false;
     // Use this for initialization
     void Start ()
     {
@@ -35,10 +34,7 @@ public class Door : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (room3.active)
-        {
-            Camera = true;
-        }
+        
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length == 0)
         {
@@ -87,11 +83,6 @@ public class Door : MonoBehaviour {
             
             playertf.position = spawnpositio.position;
             nextlevel.SetActive(true);
-
-            if (room3.active)
-            {
-                Camera = true;
-            }
             thisLevel.SetActive(false);
         }
 

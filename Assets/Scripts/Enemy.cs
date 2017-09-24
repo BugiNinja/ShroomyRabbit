@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        health = transform.FindChild("Health").gameObject;
+        health = transform.Find("Health").gameObject;
         health.SetActive(false);
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
