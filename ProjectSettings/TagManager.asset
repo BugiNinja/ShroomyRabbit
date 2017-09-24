@@ -13,6 +13,7 @@ TagManager:
   - LifeShroom
   - Spawner
   - Flipper
+  - Gun
   layers:
   - Default
   - TransparentFX

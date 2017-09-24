@@ -5,6 +5,7 @@ using UnityEngine;
 public class bigShroom : MonoBehaviour {
 
     Stats s;
+    gunMouseFollow g;
 
     // Use this for initialization
     void Start ()
@@ -24,6 +25,8 @@ public class bigShroom : MonoBehaviour {
         {
             Stats s = coll.gameObject.GetComponent<Stats>();  //coll.gameObject.GetComponent<Stats>();
             s.AddLife(100);
+            gunMouseFollow g = GameObject.FindGameObjectWithTag("Gun").GetComponent<gunMouseFollow>();
+            g.shootingDelay = g.shootingDelay / 4;
             Destroy(gameObject);          
         }
         else if (coll.gameObject.tag == "Enemy")
