@@ -73,7 +73,7 @@ public class enemyGun : MonoBehaviour {
         {
             if (transform.rotation.eulerAngles.z > 180)
             {
-                transform.rotation = Quaternion.Euler(0f, 0f, 90);
+                transform.rotation = Quaternion.Euler(0f, 0f, 130);
             }
 
             if (rotateUp)
@@ -85,12 +85,12 @@ public class enemyGun : MonoBehaviour {
                 transform.rotation = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z + 1.0f);
             }
 
-            if (transform.rotation.eulerAngles.z < 10.0f && transform.rotation.eulerAngles.z > 5f)
+            if (transform.rotation.eulerAngles.z < 45.0f && transform.rotation.eulerAngles.z > 5f)
             {
                 rotateUp = false;
 
             }
-            else if (transform.rotation.eulerAngles.z > 110.0f && transform.rotation.eulerAngles.z < 130f)
+            else if (transform.rotation.eulerAngles.z > 135.0f && transform.rotation.eulerAngles.z < 160f)
             {
                 rotateUp = true;
             }
@@ -101,7 +101,7 @@ public class enemyGun : MonoBehaviour {
             if (transform.rotation.eulerAngles.z < 180)
             {
 
-                transform.rotation = Quaternion.Euler(0f, 0f, 270);
+                transform.rotation = Quaternion.Euler(0f, 0f, 360-130);
             }
             if (rotateUp)
             {
@@ -112,12 +112,12 @@ public class enemyGun : MonoBehaviour {
                 transform.rotation = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z - 1.0f);
             }
 
-            if (transform.rotation.eulerAngles.z > 360 - 10.0f && transform.rotation.eulerAngles.z < 360 - 5f)
+            if (transform.rotation.eulerAngles.z > 360 - 45.0f && transform.rotation.eulerAngles.z < 360 - 5f)
             {
                 rotateUp = false;
 
             }
-            else if (transform.rotation.eulerAngles.z < 360 - 110.0f && transform.rotation.eulerAngles.z > 360 - 130f)
+            else if (transform.rotation.eulerAngles.z < 360 - 135.0f && transform.rotation.eulerAngles.z > 360 - 160f)
             {
                 rotateUp = true;
             }
