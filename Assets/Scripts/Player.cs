@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public AudioClip death;
     float dtimer = 0f;
     GameObject health;
+    public GameObject gameover;
 
     // Use this for initialization
     void Start()
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour {
     {
         if (s.IsAlive() == false)
         {
+            /*
             //Destroy enemy when hp <= 0
             if (dtimer == 0)
             {
@@ -62,8 +64,11 @@ public class Player : MonoBehaviour {
             dtimer -= Time.deltaTime;
             if (dtimer <= 0)
             {
+                
                 Destroy(gameObject);
-            }
+            }*/
+            gameover.SetActive(true);
+            Destroy(gameObject);
         }
         Invicibility();
         
