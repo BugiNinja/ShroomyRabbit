@@ -23,13 +23,19 @@ public class enemyGun : MonoBehaviour {
 
     Transform muzzle;
 
+    Transform flipper;
+
+    SpriteRenderer srEnemy;
+
     // Use this for initialization
     void Start ()
     {
         em = gameObject.GetComponentInParent<enemyMovement>();
         muzzle = transform.GetChild(0);
         sr = gameObject.GetComponent<SpriteRenderer>();
+        srEnemy = transform.parent.parent.GetComponent<SpriteRenderer>();
         shootTimer = shootDelay;
+        flipper = transform.parent.transform;
     }
 	
 	// Update is called once per frame
@@ -43,15 +49,27 @@ public class enemyGun : MonoBehaviour {
     {
         if (foundPlayer)
         {
-            
+
             Vector3 diff = player.position - transform.position;
             diff.Normalize();
             float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
 
+            if (srEnemy.flipX == true)
+            {
+                sr.flipY = true;
+                sr.flipX = false;
+                flipper.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                sr.flipY = true;
+                sr.flipX = true;
+                flipper.localScale = new Vector3(1, 1, 1);
+            }
 
         }
-        else if(em.left == true)
+        else if (em.left == true)
         {
             if (transform.rotation.eulerAngles.z > 180)
             {
@@ -77,13 +95,13 @@ public class enemyGun : MonoBehaviour {
                 rotateUp = true;
             }
         }
-        else if(em.left == false)
+        else if (em.left == false)
         {
-            
-            if(transform.rotation.eulerAngles.z < 180)
+
+            if (transform.rotation.eulerAngles.z < 180)
             {
-                
-                transform.rotation = Quaternion.Euler(0f, 0f, 270 );
+
+                transform.rotation = Quaternion.Euler(0f, 0f, 270);
             }
             if (rotateUp)
             {
@@ -104,13 +122,19 @@ public class enemyGun : MonoBehaviour {
                 rotateUp = true;
             }
         }
-        if (transform.rotation.eulerAngles.z < 180)
+        if (!foundPlayer)
         {
-            sr.flipX = true;
-        }
-        else if (transform.rotation.eulerAngles.z > 180)
-        {
-            sr.flipX = false;
+            if (transform.rotation.eulerAngles.z < 180)
+            {
+                sr.flipY = true;
+                flipper.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (transform.rotation.eulerAngles.z > 180)
+            {
+                sr.flipY = true;
+                //sr.flipX = false;
+                flipper.localScale = new Vector3(1, 1, 1);
+            }
         }
 
     }
@@ -119,10 +143,9 @@ public class enemyGun : MonoBehaviour {
         Vector2 diff =  muzzle.position - transform.position;
         diff.Normalize();
         RaycastHit2D hit = Physics2D.Raycast(muzzle.position, diff, Mathf.Infinity);
-        
+        Debug.DrawRay(muzzle.position, diff);
         if (hit.collider != null)
         {
-
             if (hit.collider.tag == "Player")
             {
                 
