@@ -14,11 +14,13 @@ public class Player : MonoBehaviour {
     public AudioClip hit;
     public AudioClip death;
     float dtimer = 0f;
-
+    GameObject health;
 
     // Use this for initialization
     void Start()
     {
+        health = transform.FindChild("Health").gameObject;
+        health.SetActive(false);
         source = gameObject.GetComponent<AudioSource>();
         s = gameObject.GetComponent<Stats>();
         sr = gameObject.GetComponent<SpriteRenderer>();
@@ -26,8 +28,23 @@ public class Player : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody2D>();
         cder = gameObject.GetComponent<Collider2D>();
         Physics2D.IgnoreLayerCollision(8, 10, true);
+        
     }
-
+    void CheckLife()
+    {
+        for(int i = 0; i < health.transform.childCount; i++)
+        {
+            GameObject c;
+            c = health.transform.GetChild(i).gameObject;
+            c.SetActive(false);
+        }
+        for(int i = 0; (i+1)*25 <= s.GetALife(); i++)
+        {
+            GameObject c;
+            c = health.transform.GetChild(i).gameObject;
+            c.SetActive(true);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -41,7 +58,7 @@ public class Player : MonoBehaviour {
                 source.clip = death;
                 source.Play();
             }
-            a.Play("playerDeath");
+            //a.Play("playerDeath");
             dtimer -= Time.deltaTime;
             if (dtimer <= 0)
             {
@@ -56,6 +73,8 @@ public class Player : MonoBehaviour {
     {
         if (s.IsInvicible() == true)
         {
+            CheckLife();
+            health.SetActive(true);
             gameObject.layer = 10; //Move to invicible layer
             //invicible visual effect
             timer -= Time.deltaTime;
@@ -75,7 +94,7 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            
+            health.SetActive(false);
             gameObject.layer = 8; //Back to character layer
             sr.enabled = true;
         }
@@ -110,6 +129,7 @@ public class Player : MonoBehaviour {
                 source.Play();
                 PlayDamageAnimation();
                 s.LoseLife(25);
+                CheckLife();
                 s.GiveInvicibility();
             }
             
